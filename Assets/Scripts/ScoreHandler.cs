@@ -10,19 +10,17 @@ public class ScoreHandler : MonoBehaviour,IReset
     int matchvalue;
     int turnvalue;
 
-    private void Start()
-    {
-        matchvalue = 0;
-        turnvalue = 0;  
-    }
+   
     public void ChangeMacthTextValue(int value) 
     {
         matchvalue += value;
+        GameManager.Instance.matchValue = matchvalue;
         matchText.text = matchvalue.ToString();
     }
     public  void ChangeturntextValue(int value) 
     {
         turnvalue += value;
+        GameManager.Instance.turnValue = turnvalue;
         turnText.text = turnvalue.ToString();
     }
     private void OnEnable()
@@ -35,10 +33,20 @@ public class ScoreHandler : MonoBehaviour,IReset
         GameManager.GameReset -= ResetValues;
     }
 
-    
+    public void SetValues(int turn ,int match) 
+    {
+        matchvalue = match;
+        GameManager.Instance.matchValue = matchvalue;
+        matchText.text = matchvalue.ToString();
+        turnvalue = turn;
+        GameManager.Instance.turnValue = turnvalue;
+        turnText.text = turnvalue.ToString();
+
+    }
 
    public void ResetValues()
     {
+       
      
         matchvalue = 0;
         turnvalue = 0;

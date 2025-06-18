@@ -634,51 +634,52 @@ MonoBehaviour:
   scoreHandler: {fileID: 1784871475}
   playAgainPanel: {fileID: 32685673}
   SpriteList:
-  - name: 1
+  - name: 0
     sprite: {fileID: 21300000, guid: 2852140f984655c4f85e8402391efdd0, type: 3}
-  - name: 2
+  - name: 1
     sprite: {fileID: 21300000, guid: 684252dd0a01bb14fab70097949088e9, type: 3}
-  - name: 3
+  - name: 2
     sprite: {fileID: 21300000, guid: 8493e00eb93d385479da0c6c346b5369, type: 3}
-  - name: 4
+  - name: 3
     sprite: {fileID: 21300000, guid: 5a594b978ba591940bc0f5e6e146b547, type: 3}
-  - name: 5
+  - name: 4
     sprite: {fileID: 21300000, guid: 6b2a5c1f9720b9048b999d98077273b8, type: 3}
-  - name: 6
+  - name: 5
     sprite: {fileID: 21300000, guid: 877d94fdbe24bd5419cff08cc9b3ba31, type: 3}
-  - name: 7
+  - name: 6
     sprite: {fileID: 21300000, guid: b51fe77ef0ba397428aae41fe4412242, type: 3}
+  - name: 7
+    sprite: {fileID: 21300000, guid: 63eb3d1bf2322e24ea829f044c0283c4, type: 3}
   - name: 8
-    sprite: {fileID: 21300000, guid: 63eb3d1bf2322e24ea829f044c0283c4, type: 3}
-  - name: 9
     sprite: {fileID: 21300000, guid: 934352a9d4f781e409c42d554e2e0011, type: 3}
-  - name: 10
+  - name: 9
     sprite: {fileID: 21300000, guid: 7b48f0ae86fbe5340b07aca475c4f305, type: 3}
-  - name: 11
+  - name: 10
     sprite: {fileID: 21300000, guid: 88a59cb39ad96a547a1b346c8d0bd3be, type: 3}
-  - name: 12
+  - name: 11
     sprite: {fileID: 21300000, guid: ed18626ce63099a4ebf77792950f2566, type: 3}
-  - name: 13
+  - name: 12
     sprite: {fileID: 21300000, guid: d75dcf33215e55b4e976526360a09546, type: 3}
-  - name: 14
+  - name: 13
     sprite: {fileID: 21300000, guid: 6acac33893d7a8f429f5e5b22ef676f3, type: 3}
-  - name: 15
+  - name: 14
     sprite: {fileID: 21300000, guid: eab1f4242aacdda4a926af2bc731cc48, type: 3}
-  - name: 16
+  - name: 15
     sprite: {fileID: 21300000, guid: 6287357845e3fdb479ff15b54397ae0c, type: 3}
-  - name: 17
+  - name: 16
     sprite: {fileID: 21300000, guid: 38bd90f1fa0b94b4fb6bf85335b719b7, type: 3}
-  - name: 18
+  - name: 17
     sprite: {fileID: 21300000, guid: 5f7e5125614d4d2439e5e0dbb04a6bc2, type: 3}
-  - name: 19
+  - name: 18
     sprite: {fileID: 21300000, guid: 63eb3d1bf2322e24ea829f044c0283c4, type: 3}
-  - name: 20
+  - name: 19
     sprite: {fileID: 21300000, guid: aa940ab4004ecc542886577888a1e162, type: 3}
   gridLayout:
   - {x: 2, y: 3}
   - {x: 4, y: 5}
   - {x: 5, y: 6}
   CardsList: []
+  isDataExist: 0
 --- !u!4 &319226370
 Transform:
   m_ObjectHideFlags: 0
@@ -1479,6 +1480,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 319226369}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ResetDataIfDifficultyChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &594426239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2252,6 +2265,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1070804579}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: PlayRadioButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 319226369}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ResetDataIfDifficultyChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3320,6 +3345,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1070804579}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: PlayRadioButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 319226369}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ResetDataIfDifficultyChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

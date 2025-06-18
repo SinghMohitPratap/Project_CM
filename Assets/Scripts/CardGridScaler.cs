@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 /// <summary>
 /// //Script will be enable when user click on playbutton in Menu Page
 /// It enabled through inspector play button On click event...
@@ -25,14 +26,19 @@ public class CardGridScaler : MonoBehaviour,IReset
 
 
     Vector2 screenSize;
-    GameObject[,] cards_2D;
+    internal Card[,] cards_2D;
 
     private void OnEnable()
     {
         if ((rows * columns) % 2 == 0)
         {
             UpdateGrid();
-            UpdateCardsData();
+            if (GameManager.Instance.isDataExist)             
+                UpdateCardsDataFromDisk();
+            else
+                UpdateCardsData();
+
+
             screenSize = new Vector2(Screen.width, Screen.height);
             StartCoroutine(CheckForGridSize());
         }
@@ -72,12 +78,12 @@ public class CardGridScaler : MonoBehaviour,IReset
         grid.cellSize = new Vector2(cellWidth, cellHeight);
 
         GameManager.Instance.InvokeCardResizeEvent();
-
     }
 
-    void UpdateCardsData() 
+
+
+    void UpdateCardsDataFromDisk()
     {
-       
         foreach (Transform child in cardGrid)
         {
             Destroy(child.gameObject);
@@ -85,7 +91,7 @@ public class CardGridScaler : MonoBehaviour,IReset
         }
 
         int counter = 0;
-        cards_2D = new GameObject[rows, columns];
+        cards_2D = new Card[rows, columns];
         for (int i = 0; i < cards_2D.GetLength(0); i++)
         {
             for (int j = 0; j < cards_2D.GetLength(1); j++)
@@ -96,8 +102,37 @@ public class CardGridScaler : MonoBehaviour,IReset
                 card.cardPos = new Vector2(i, j);
                 card.easeTime = visibilityEaseTime;
                 GameManager.Instance.CardsList.Add(temp);
-                cards_2D[i, j] = temp;
-              
+                cards_2D[i, j] = card;
+
+            }
+        }
+        GameManager.Instance.SetCardPrefabValueFromDisk();
+    }
+
+    void UpdateCardsData() 
+    {
+       
+       
+        foreach (Transform child in cardGrid)
+        {
+            Destroy(child.gameObject);
+            GameManager.Instance.CardsList.Clear();
+        }
+
+        int counter = 0;
+        cards_2D = new Card[rows, columns];
+        for (int i = 0; i < cards_2D.GetLength(0); i++)
+        {
+            for (int j = 0; j < cards_2D.GetLength(1); j++)
+            {
+                var temp = Instantiate(cardPrefab, cardGrid);
+                Card card = temp.GetComponent<Card>();
+                card.cardId = counter++;
+                card.cardPos = new Vector2(i, j);
+                card.easeTime = visibilityEaseTime;
+                GameManager.Instance.CardsList.Add(temp);
+                cards_2D[i, j] = card;
+               
             }
         }
         List<GameObject> cardListCopy = new List<GameObject>(GameManager.Instance.CardsList);
@@ -121,6 +156,7 @@ public class CardGridScaler : MonoBehaviour,IReset
 
 
         }
+       
         cardListCopy.Clear();
         cardListCopy = null;
         spriteListCopy.Clear();
@@ -134,5 +170,21 @@ public class CardGridScaler : MonoBehaviour,IReset
     public void ResetValues()
     {
        this.enabled = false;
+    }
+
+
+    public void ResetCardsTwoDArr() 
+    {
+
+        for (int i = 0; i < cards_2D.GetLength(0); i++)
+        {
+            for (int j = 0; j < cards_2D.GetLength(1); j++)
+            {
+
+                cards_2D[i, j] = null;
+
+            }
+        }
+
     }
 }
