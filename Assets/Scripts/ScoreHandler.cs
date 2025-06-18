@@ -31,8 +31,7 @@ public class ScoreHandler : MonoBehaviour,IReset
     }
     private void OnDisable()
     {
-        matchvalue = 0;
-        turnvalue = 0;
+   
         GameManager.GameReset -= ResetValues;
     }
 

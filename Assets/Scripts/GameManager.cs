@@ -206,7 +206,7 @@ public class GameManager : MonoBehaviour
     }
     public void OnClickHomeBtn() 
     {
-        ResetGameplay();
+        //ResetGameplay();
     }
 }
 
