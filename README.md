@@ -45,6 +45,9 @@ Animates the "Play Again" button:
 Handles difficulty radio toggle visuals:
 - Activates visual toggle based on saved difficulty setting (`PlayerPrefs`)
 
+### 🔹 `DataPersistence.cs`
+Handles Save and Load Data:
+- Saves Data to playerprefs and Load Data from it
 ---
 
 ## 🎚️ Difficulty Levels
