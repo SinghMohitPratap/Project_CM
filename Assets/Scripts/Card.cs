@@ -16,6 +16,8 @@ public class Card : MonoBehaviour
     bool isFlipped ;
     public Vector2[] card_fg_size = new Vector2[4];
     CardGridScaler cardGridScaler;
+  
+    public bool isHide=false;
     private void Awake()
     {
         isFlipped = true;
