@@ -310,6 +310,8 @@ public class GameManager : MonoBehaviour
     {
         cardGridScaler.ResetCardsTwoDArr();
         GameManager.Instance.isDataExist = false;
+        gameData = null;
+        ResetGameplay();
     }
 
     void ChangeCardsBtnActiveState(bool value) 
