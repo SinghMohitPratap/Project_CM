@@ -1,21 +1,5 @@
 # 🃏 Unity C_M
 
-A responsive, grid-based card-matching memory game built in Unity, featuring animated card flips, difficulty settings, sound management, and a polished Play Again UI animation.
-
----
-
-## 🎮 Features
-
-- Flip-to-match memory gameplay
-- Smooth card animation and scaling
-- Responsive grid layout based on screen size
-- Multiple difficulty levels
-- Sound system with background music and SFX
-- Animated "Play Again" UI
-- Score tracking for matches and turns
-
----
-
 ## 📁 Script Breakdown
 
 ### 🔹 `Card.cs`
@@ -99,14 +83,3 @@ Attach your clips in the Inspector and tune volume settings.
 Implemented by scripts that need to reset values on game restart (`CardGridScaler`, `ScoreHandler`, etc.)
 
 ---
-
-## 🧪 Usage Tips
-
-- Card flip animation is handled via coroutine-based rotation
-- Ensure the number of cards is even to prevent unmatched pairs
-- Adjust `CardGridScaler` parameters for spacing and layout
-
----
-
-## 📂 Folder Structure Suggestion
-

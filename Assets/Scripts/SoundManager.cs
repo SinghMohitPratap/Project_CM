@@ -39,6 +39,12 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void ChangeVolume() 
+    {       
+            backgroundSource.volume = backgroundVolume;
+            sfxSource.volume = sfxVolume;  
+    }
+
     void SetupAudioSources()
     {
         backgroundSource = gameObject.AddComponent<AudioSource>();
