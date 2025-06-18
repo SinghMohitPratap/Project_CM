@@ -3,3 +3,6 @@ Logs/
 Temp/
 Assembly-CSharp.csproj
 Project_CM.sln
+.vs/
+Build/
+obj/
